@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pricing — Corevia</title>
+  <meta name="description" content="Affordable, fixed quotes for video, websites, apps, systems, data and AI projects. Build your quote in seconds.">
+  <meta name="theme-color" content="#050f14">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Pricing — Corevia">
+  <meta property="og:description" content="Affordable, fixed quotes for video, websites, apps, systems, data and AI projects. Build your quote in seconds.">
+  <meta property="og:image" content="assets/img/og-card.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
+</head>
+<body data-page="pricing">
+<main>
+  <section class="hero hero-sub">
+    <canvas class="hero3d" data-variant="orb" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="eyebrow" data-hero-fade>Pricing</div>
+        <h1 class="display" data-split>Affordable. <span class="grad">Honest.</span> Fast.</h1>
+        <p class="lead" data-hero-fade>Every project is different, so we give you a clear fixed quote before we start — no hidden fees, no surprises.</p>
+        
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:30px">
+    <div class="wrap">
+      <div class="grid g3 tiers" data-reveal="stagger">
+        <article class="glass spot tier" data-tilt="6">
+          <h3>Starter</h3><p class="muted" style="margin:6px 0 0">For creators & small shops</p>
+          <div class="price">Low cost <small>· quick quote</small></div>
+          <ul><li>One service (e.g. a video or a landing page)</li><li>Fast delivery</li><li>2 rounds of edits</li><li>WhatsApp support</li></ul>
+          <a class="btn ghost" href="#" data-wa="Hi Corevia! I'm interested in the Starter package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </article>
+        <article class="glass spot tier hot" data-tilt="6"><span class="tag">MOST POPULAR</span>
+          <h3>Business</h3><p class="muted" style="margin:6px 0 0">For companies that want to grow</p>
+          <div class="price">Best value <small>· fixed quote</small></div>
+          <ul><li>Website + video, or app + system</li><li>Matching brand style everywhere</li><li>Priority delivery</li><li>Unlimited small edits during the project</li><li>1 month free support</li></ul>
+          <a class="btn" href="#" data-wa="Hi Corevia! I'm interested in the Business package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </article>
+        <article class="glass spot tier" data-tilt="6">
+          <h3>Custom</h3><p class="muted" style="margin:6px 0 0">Systems, apps & big launches</p>
+          <div class="price">Tailored <small>· milestones</small></div>
+          <ul><li>Mobile apps & company systems</li><li>Data dashboards & automation</li><li>Pay per milestone</li><li>Ongoing monthly care plans</li></ul>
+          <a class="btn ghost" href="#" data-wa="Hi Corevia! I'd like a Custom quote.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="glass builder" data-scale-in>
+        <div class="eyebrow">Quote builder</div>
+        <h2 class="h2" style="font-size:clamp(30px,4vw,52px)">Build your quote in <span class="grad">10 seconds</span></h2>
+        <p class="lead" style="margin:14px 0 30px">Choose what you need — we'll send your price on WhatsApp.</p>
+        <form id="qb">
+          <div class="label">What do you need?</div>
+          <div class="opts" id="qbServices"></div>
+          <div class="label">Project size</div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="size" value="Small" checked><span>Small</span></label>
+            <label class="opt"><input type="radio" name="size" value="Medium"><span>Medium</span></label>
+            <label class="opt"><input type="radio" name="size" value="Large"><span>Large</span></label>
+          </div>
+          <div class="label">When do you need it?</div>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="time" value="Express (ASAP)"><span>⚡ Express</span></label>
+            <label class="opt"><input type="radio" name="time" value="Normal" checked><span>Normal</span></label>
+            <label class="opt"><input type="radio" name="time" value="Flexible"><span>Flexible</span></label>
+          </div>
+          <div class="summary" id="qbSum" aria-live="polite"></div>
+          <div class="btn-row" style="margin-top:24px"><button class="btn" type="submit">Send on WhatsApp <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap" style="max-width:900px">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="h2" data-split style="margin-bottom:40px">Questions? <span class="grad">Answered.</span></h2>
+      <div class="faq" data-reveal="stagger">
+        <details class="glass"><summary>How fast can you deliver?</summary><div class="a">Very fast. Smaller jobs like a video edit or a landing page are usually the quickest; apps and systems are delivered in milestones so you see progress early. You get a delivery date with your quote.</div></details>
+        <details class="glass"><summary>How do I pay?</summary><div class="a">We agree a fixed price first. Small projects are usually paid half at the start and half on delivery; bigger projects are paid per milestone.</div></details>
+        <details class="glass"><summary>Can I ask for changes?</summary><div class="a">Yes. Every package includes rounds of edits, and we share previews while we work so changes are easy.</div></details>
+        <details class="glass"><summary>Do you host my website?</summary><div class="a">We can set up fast, free hosting for most websites, and help you connect your own domain whenever you're ready.</div></details>
+        <details class="glass"><summary>I only have phone footage. Is that OK?</summary><div class="a">Absolutely — that's exactly what our cinematic transformation and AI video services are for.</div></details>
+      </div>
+    </div>
+  </section>
+  <section class="cta">
+    <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center">Ready?</div>
+      <h2 class="display" data-split>Let's build your<br><span class="grad">next big thing.</span></h2>
+      <div class="btn-row"><a class="btn" href="contact.html">Start a project <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="btn ghost" href="work.html">See our work <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/bg.js"></script>
+<script>
+  (function () {
+    document.getElementById("qbServices").innerHTML = COREVIA.services.map((s, i) =>
+      `<label class="opt"><input type="checkbox" name="svc" value="${s.title}" ${i === 0 ? "checked" : ""}><span>${s.title}</span></label>`).join("");
+    const f = document.getElementById("qb"), sum = document.getElementById("qbSum");
+    const read = () => {
+      const svc = [...f.querySelectorAll("[name=svc]:checked")].map(x => x.value);
+      return { svc, size: f.size.value, time: f.time.value };
+    };
+    const show = () => { const q = read(); sum.textContent = q.svc.length ? `${q.svc.join(" + ")} · ${q.size} · ${q.time}` : "Pick at least one service."; };
+    f.addEventListener("change", show); show();
+    f.addEventListener("submit", e => {
+      e.preventDefault(); const q = read(); if (!q.svc.length) return;
+      window.open(window.coreviaWA(`Hi Corevia! I'd like a quote.\nServices: ${q.svc.join(", ")}\nSize: ${q.size}\nTiming: ${q.time}`), "_blank", "noopener");
+    });
+  })();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  document.querySelectorAll("[data-wa]").forEach(a => { a.href = coreviaWA(a.dataset.wa); a.target = "_blank"; a.rel = "noopener"; });
+</script>
+<script type="module" src="assets/js/hero3d.js"></script>
+</body>
+</html>

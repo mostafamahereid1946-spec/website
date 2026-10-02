@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#08161D"/>
+  <g stroke="#1AD4E6" stroke-opacity=".08" stroke-width="2">
+    <path d="M0 630 L320 0M200 630 L520 0M400 630 L720 0M600 630 L920 0M800 630 L1120 0M1000 630 L1320 0"/>
+  </g>
+  <circle cx="980" cy="160" r="260" fill="none" stroke="#1AD4E6" stroke-opacity=".18" stroke-width="3"/>
+  <g transform="translate(500 120) scale(2)">
+    <path d="M78.3 21.7 A40 40 0 1 0 78.3 78.3" fill="none" stroke="#1AD4E6" stroke-width="13"/>
+    <path d="M31 37 L52 61 L70 40 H82" fill="none" stroke="#D4A23E" stroke-width="9"/>
+  </g>
+  <text x="600" y="440" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-weight="700" font-size="96" letter-spacing="4" fill="#1AD4E6">COREVIA</text>
+  <text x="600" y="500" text-anchor="middle" font-family="monospace" font-size="28" letter-spacing="8" fill="#E8F1F3">IT SOLUTIONS ENGINEERING</text>
+  <rect x="570" y="530" width="60" height="6" fill="#D4A23E"/>
+</svg>
