@@ -22,6 +22,26 @@ Only **6 clips** are really needed: the 6 remaining service clips. The other pag
 
 If a tool's free plan adds a **watermark**, make that clip with a different tool. Free tiers change often, so check each site's current limits.
 
+## 🖥️ Best option: MiniMax H3 on your own PC (free, no watermark)
+
+MiniMax H3 is an open-weights video model that runs locally, so there are no daily limits and no watermark.
+
+**Setup**
+- Needs an **NVIDIA graphics card**: 12 GB VRAM recommended, works from about 6 GB (lower VRAM gives softer results).
+- Easiest install: **Pinokio** (one-click) or **ComfyUI**.
+- Before using clips on the business site, check that H3's licence allows commercial use.
+
+**Settings for the Corevia site**
+| Use | Size | Length |
+|---|---|---|
+| Page backgrounds | 1344 × 768 (16:9) | 8–10 s |
+| Service cards | 768 × 768 (square) | 6–8 s |
+
+- **Mode: image-to-video.** Start from `style-reference-1.jpg` or `style-reference-2.jpg` so every clip matches your Omni ones.
+- **Perfect loops:** use **first-and-last-frame** mode and give it the *same* image for the first and last frame. The clip then ends exactly where it starts.
+- **Audio:** turn it off if you can. If not, it doesn't matter — Claude strips it.
+- Use the prompts below exactly as written, including the style tail.
+
 ## Rules for every clip and photo
 
 - **Dark background.** The site blends videos with *screen* mode, so black areas become see-through and bright areas glow. A dark navy or black background is essential.
