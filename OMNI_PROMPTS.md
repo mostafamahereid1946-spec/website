@@ -2,6 +2,26 @@
 
 Generate these in the **Gemini app** or **Google Flow** with Omni, then send them to Claude (or put them in the folders listed). Each one has a ready slot on the website.
 
+## ✅ Done so far
+- `home.mp4` (home background, scroll-controlled) ✔
+- `video-montage.mp4` (Video Montage service) ✔
+
+## 🆓 Free daily plan — finish the rest in 1–2 days, not 2 weeks
+
+Only **6 clips** are really needed: the 6 remaining service clips. The other pages already reuse your home video, and the founder photo is an *image*, which has much higher free limits. Spread the clips across several free tools; each one resets daily:
+
+| Tool | Free allowance (approx.) | Use it for |
+|---|---|---|
+| **Gemini Omni** (Gemini app / Flow) | ~2 videos a day | the hardest clips (#6 AI video, #7 cinematic) |
+| **Kling AI** (klingai.com) | 66 credits every day ≈ 2–6 short clips | #2 websites, #3 mobile apps, #4 systems |
+| **Hailuo AI** (hailuoai.video) | daily credits ≈ 2–3 clips | #5 data analysis + spares |
+| **PixVerse** (app.pixverse.ai) | daily credits | spares / retries |
+| **Gemini image generation** (Gemini app) | many images a day | founder portrait + any still photos |
+
+**How to keep every tool on brand:** use **image-to-video** and upload `style-reference-1.jpg` or `style-reference-2.jpg` (frames from your two Omni clips, sent to you in chat) as the start image or style reference, then paste the prompt below. Every clip then gets the same glass, cyan and gold look.
+
+If a tool's free plan adds a **watermark**, make that clip with a different tool. Free tiers change often, so check each site's current limits.
+
 ## Rules for every clip and photo
 
 - **Dark background.** The site blends videos with *screen* mode, so black areas become see-through and bright areas glow. A dark navy or black background is essential.
@@ -34,7 +54,7 @@ Format: **1:1 square**, 6–8 s, seamless loop. Save as `assets/video/services/<
 
 | # | File name | Prompt (+ style tail) |
 |---|---|---|
-| 1 | `video-montage.mp4` | A floating holographic video-editing timeline in dark space, clips sliding and snapping together, a glowing playhead sweeping across, film frames flying out in 3D, seamless loop |
+| ✔ 1 | `video-montage.mp4` | A floating holographic video-editing timeline in dark space, clips sliding and snapping together, a glowing playhead sweeping across, film frames flying out in 3D, seamless loop |
 | 2 | `websites.mp4` | A floating glass laptop screen in dark space showing an abstract glowing website layout that scrolls, UI cards assembling themselves in 3D, seamless loop |
 | 3 | `mobile-apps.mp4` | Two sleek smartphones floating and slowly rotating in dark space, screens glowing with abstract app interface cards that slide in, seamless loop |
 | 4 | `company-systems.mp4` | A glowing 3D network of connected glass nodes, cyan data pulses travelling between them like a living company system, slow orbit camera, seamless loop |

@@ -18,6 +18,7 @@
     v.playsInline = true;
     v.preload = "auto";
     v.style.opacity = cfg.opacity ?? 0.5;
+    if (cfg.poster) v.poster = cfg.poster;
     if (cfg.mode === "scrub" && !reduce) {
       v.pause();
       let target = 0;
@@ -26,14 +27,19 @@
         target = max > 0 ? scrollY / max : 0;
       };
       addEventListener("scroll", onScroll, { passive: true });
+      let cur = 0;
       const tick = () => {
         if (v.duration) {
           const t = target * (v.duration - 0.05);
-          v.currentTime += (t - v.currentTime) * 0.12;
+          cur += (t - cur) * 0.1;
+          // only seek when the position really moved — constant seeking is expensive
+          if (Math.abs(cur - v.currentTime) > 0.04 && !v.seeking) v.currentTime = cur;
         }
         requestAnimationFrame(tick);
       };
-      v.addEventListener("loadedmetadata", tick, { once: true });
+      v.addEventListener("loadedmetadata", () => { onScroll(); tick(); }, { once: true });
+      // iOS only buffers a video after play() — prime it, then pause
+      v.play().then(() => v.pause()).catch(() => {});
     } else {
       v.loop = true;
       v.autoplay = true;

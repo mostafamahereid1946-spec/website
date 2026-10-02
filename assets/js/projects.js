@@ -16,6 +16,7 @@
    - cover     image path (optional) e.g. "assets/img/projects/x.jpg"
    - video     mp4 path (keep it under 25 MB for Cloudflare Pages)
    - youtube   YouTube video id or link (use this for big 4K files)
+   - drive     Google Drive share link (file must be "Anyone with the link")
    - link      live website / store link (optional)
    - featured  true = shown on the home page
    - concept   true = studio concept piece (shows a "Concept" badge).
@@ -31,7 +32,8 @@ window.COREVIA_PROJECTS = [
     summary: "Our first client. A 4K creative edit for Dr Mohamed Ehab — fast pacing, clean motion titles and a cinematic grade built to stop the scroll.",
     tags: ["4K", "Creative edit", "Color grade", "Motion titles"],
     cover: "",
-    video: "assets/video/projects/dr-mohamed-ehab.mp4",
+    video: "",
+    drive: "https://drive.google.com/file/d/1L-YJKyrb0AICL5A9vlA7Gilc8mWVZCRp/view",
     youtube: "",
     link: "",
     featured: true,

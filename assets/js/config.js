@@ -49,12 +49,14 @@ window.COREVIA = {
      mode "loop"  = the video loops on its own.
      Leave src empty to use the built-in animated WebGL background only. */
   backgrounds: {
-    home:     { src: "", mode: "scrub", opacity: 0.55 },
-    services: { src: "", mode: "loop",  opacity: 0.45 },
-    work:     { src: "", mode: "loop",  opacity: 0.4 },
-    pricing:  { src: "", mode: "loop",  opacity: 0.4 },
-    about:    { src: "", mode: "scrub", opacity: 0.45 },
-    contact:  { src: "", mode: "loop",  opacity: 0.45 }
+    // home.mp4 was made with Gemini Omni. Other pages reuse it (it is cached
+    // after the first page, so no extra download) until their own clips exist.
+    home:     { src: "assets/video/backgrounds/home.mp4", poster: "assets/img/home-poster.jpg", mode: "scrub", opacity: 0.6 },
+    services: { src: "assets/video/backgrounds/home.mp4", mode: "loop",  opacity: 0.22 },
+    work:     { src: "assets/video/backgrounds/home.mp4", mode: "loop",  opacity: 0.22 },
+    pricing:  { src: "assets/video/backgrounds/home.mp4", mode: "loop",  opacity: 0.2 },
+    about:    { src: "assets/video/backgrounds/home.mp4", mode: "scrub", opacity: 0.28 },
+    contact:  { src: "assets/video/backgrounds/home.mp4", mode: "loop",  opacity: 0.25 }
   },
 
   services: [
@@ -67,8 +69,8 @@ window.COREVIA = {
       long: "Reels, ads, events, doctors, brands and YouTube — we cut, color, sound-design and animate your footage into content people actually watch to the end.",
       points: ["Reels / TikTok / Shorts", "Ads & promos", "Color grading", "Motion titles & subtitles", "Sound design"],
       speed: "Fast delivery",
-      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
-      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
+      image: "",
+      video: "assets/video/services/video-montage.mp4" // made with Gemini Omni
     },
     {
       id: "websites",

@@ -10,10 +10,12 @@
   const fmt = d => { const x = new Date(d + "T00:00:00"); return isNaN(x) ? "" : x.toLocaleDateString("en-GB", { month: "short", year: "numeric" }); };
   const isNew = d => (Date.now() - new Date(d + "T00:00:00")) / 864e5 < 35;
   const ytId = v => { if (!v) return ""; const m = String(v).match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/); return m ? m[1] : v; };
+  const driveId = v => { if (!v) return ""; const m = String(v).match(/(?:\/d\/|id=)([\w-]{20,})/); return m ? m[1] : v; };
   const mockOf = p => window.coreviaMock((svc[p.service] || {}).mock || "web");
 
   function cover(p) {
     if (p.cover) return `<img src="${esc(p.cover)}" alt="" loading="lazy">`;
+    if (p.drive) return mockOf(p) + `<img src="https://drive.google.com/thumbnail?id=${esc(driveId(p.drive))}&sz=w1280" alt="" loading="lazy" onerror="this.remove()" style="position:absolute;inset:0;z-index:1">`;
     if (p.youtube) return `<img src="https://i.ytimg.com/vi/${esc(ytId(p.youtube))}/hqdefault.jpg" alt="" loading="lazy">`;
     if (p.video) return mockOf(p) + `<video src="${esc(p.video)}#t=1" muted loop playsinline preload="metadata" style="position:relative;z-index:1"></video>`;
     return mockOf(p);
@@ -21,7 +23,7 @@
 
   function card(p) {
     const s = svc[p.service] || { title: p.service };
-    const playable = p.video || p.youtube;
+    const playable = p.video || p.youtube || p.drive;
     return `<article class="glass spot pcard" role="button" tabindex="0" aria-label="${esc(p.title)}" data-tilt="6" data-id="${esc(p.id)}" data-cursor="${playable ? "PLAY" : "VIEW"}">
       <div class="cover">
         <div class="badges">
@@ -105,7 +107,8 @@
       addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
     }
     let media;
-    if (p.youtube) media = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId(p.youtube))}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(p.title)}"></iframe>`;
+    if (p.drive) media = `<iframe src="https://drive.google.com/file/d/${esc(driveId(p.drive))}/preview" allow="autoplay; fullscreen" allowfullscreen title="${esc(p.title)}"></iframe>`;
+    else if (p.youtube) media = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId(p.youtube))}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(p.title)}"></iframe>`;
     else if (p.video) media = mockOf(p) + `<video src="${esc(p.video)}" controls autoplay playsinline style="position:relative;z-index:1"></video>`;
     else media = mockOf(p);
     const wa = `Hi Corevia! I saw "${p.title}" on your website and I want something similar.`;
