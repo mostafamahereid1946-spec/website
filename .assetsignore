@@ -1,0 +1,7 @@
+README.md
+OMNI_PROMPTS.md
+wrangler.jsonc
+.gitignore
+.git
+.github
+node_modules

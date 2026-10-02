@@ -1,0 +1,11 @@
+// Cloudflare Workers static-site config for the Corevia website.
+// "name" must match the Worker in your Cloudflare dashboard (website).
+{
+  "name": "website",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
