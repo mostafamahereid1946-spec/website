@@ -8,10 +8,34 @@ window.COREVIA = {
   tagline: "IT Solutions Engineering",
   founder: "Moustafa Maher",
   role: "Digital Solutions Engineer",
-  phone: "+974 3301 8108",
-  whatsapp: "97433018108", // digits only, used for wa.me links
+  founderPhoto: "", // e.g. "assets/img/founder.jpg" — shown on the About page
+  location: "Qatar & Egypt",
+
+  /* Two offices — both numbers have WhatsApp.
+     whatsapp = digits only (country code + number), used for wa.me links. */
+  offices: [
+    {
+      id: "qa",
+      country: "Qatar",
+      flag: "🇶🇦",
+      label: "Freelance · Qatar",
+      phone: "+974 5508 5898",
+      whatsapp: "97455085898",
+      currency: "QAR",
+      payments: ["Fawran", "Bank transfer", "Debit / credit card", "Apple Pay", "Cash"]
+    },
+    {
+      id: "eg",
+      country: "Egypt",
+      flag: "🇪🇬",
+      label: "Direct line",
+      phone: "+20 114 238 7657",
+      whatsapp: "201142387657",
+      currency: "EGP",
+      payments: ["InstaPay", "Fawry", "Vodafone Cash & mobile wallets", "Bank transfer", "Cash"]
+    }
+  ],
   email: "", // add a public business email here if you want it shown
-  location: "Doha, Qatar",
   socials: {
     instagram: "",
     tiktok: "",
@@ -42,7 +66,9 @@ window.COREVIA = {
       short: "Edits that hook in the first second and hold to the last.",
       long: "Reels, ads, events, doctors, brands and YouTube — we cut, color, sound-design and animate your footage into content people actually watch to the end.",
       points: ["Reels / TikTok / Shorts", "Ads & promos", "Color grading", "Motion titles & subtitles", "Sound design"],
-      speed: "Fast delivery"
+      speed: "Fast delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "websites",
@@ -52,7 +78,9 @@ window.COREVIA = {
       short: "Fast, animated, glassy websites that sell for you.",
       long: "Landing pages, company sites, portfolios and online stores — designed and built from scratch, mobile-first, with motion that makes visitors stay.",
       points: ["Landing pages", "Company websites", "Portfolios", "E-commerce", "Free hosting setup"],
-      speed: "Fast delivery"
+      speed: "Fast delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "mobile-apps",
@@ -62,7 +90,9 @@ window.COREVIA = {
       short: "iOS & Android apps people enjoy opening.",
       long: "From idea to store: clean UI, smooth animations and a backend that scales — booking apps, delivery, internal tools and more.",
       points: ["iOS & Android", "UI / UX design", "Backend & APIs", "Admin dashboards", "Store publishing"],
-      speed: "Milestone delivery"
+      speed: "Milestone delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "company-systems",
@@ -72,7 +102,9 @@ window.COREVIA = {
       short: "Custom systems that run your business on autopilot.",
       long: "CRM, ERP, inventory, HR, booking and clinic systems built around how your company really works — not the other way round.",
       points: ["CRM & ERP", "Inventory & sales", "Clinic & booking", "Automation", "Role-based access"],
-      speed: "Milestone delivery"
+      speed: "Milestone delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "data-analytics",
@@ -82,7 +114,9 @@ window.COREVIA = {
       short: "Turn messy numbers into clear decisions.",
       long: "We clean, analyse and visualise your data — sales, marketing, operations — into live dashboards and reports you can act on.",
       points: ["Dashboards", "Excel / Power BI", "Sales & KPI reports", "Data cleaning", "Forecasting"],
-      speed: "Fast delivery"
+      speed: "Fast delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "ai-video",
@@ -92,7 +126,9 @@ window.COREVIA = {
       short: "Your photos, brought to life with AI.",
       long: "We turn still product shots, portraits and posters into moving, cinematic AI video — perfect for ads, launches and social content.",
       points: ["Image → video", "Product animations", "AI avatars", "Ad creatives", "Social content"],
-      speed: "Fast delivery"
+      speed: "Fast delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     },
     {
       id: "cinematic",
@@ -102,7 +138,9 @@ window.COREVIA = {
       short: "Normal phone footage → movie-grade cinema.",
       long: "We take everyday video and transform it with cinematic grading, AI enhancement, upscaling, stabilisation and film-style effects.",
       points: ["Cinematic grading", "4K upscaling", "Stabilisation", "AI enhancement", "Film look & effects"],
-      speed: "Fast delivery"
+      speed: "Fast delivery",
+      image: "", // e.g. "assets/img/services/ID.jpg"  (Omni photo)
+      video: ""  // e.g. "assets/video/services/ID.mp4" (Omni loop, overrides image)
     }
   ]
 };

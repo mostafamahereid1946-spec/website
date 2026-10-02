@@ -8,7 +8,7 @@
     <path d="M78.3 21.7 A40 40 0 1 0 78.3 78.3" fill="none" stroke="#1AD4E6" stroke-width="13"/>
     <path d="M31 37 L52 61 L70 40 H82" fill="none" stroke="#D4A23E" stroke-width="9"/>
   </g>
-  <text x="600" y="440" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-weight="700" font-size="96" letter-spacing="4" fill="#1AD4E6">COREVIA</text>
+  <text x="600" y="440" text-anchor="middle" font-family="Unbounded, Arial, sans-serif" font-weight="700" font-size="96" letter-spacing="4" fill="#1AD4E6">COREVIA</text>
   <text x="600" y="500" text-anchor="middle" font-family="monospace" font-size="28" letter-spacing="8" fill="#E8F1F3">IT SOLUTIONS ENGINEERING</text>
   <rect x="570" y="530" width="60" height="6" fill="#D4A23E"/>
 </svg>

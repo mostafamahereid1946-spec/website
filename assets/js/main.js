@@ -10,8 +10,11 @@
   if (hasGSAP && window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const waLink = (msg = "") => `https://wa.me/${C.whatsapp}${msg ? "?text=" + encodeURIComponent(msg) : ""}`;
+  const office = id => C.offices.find(o => o.id === id) || C.offices[0];
+  const waLink = (msg = "", id) => `https://wa.me/${office(id).whatsapp}${msg ? "?text=" + encodeURIComponent(msg) : ""}`;
+  const telLink = o => "tel:+" + o.whatsapp;
   window.coreviaWA = waLink;
+  window.coreviaTel = telLink;
 
   /* ---------------- icons ---------------- */
   const I = {
@@ -55,7 +58,7 @@
   const mm = document.createElement("div");
   mm.className = "mobile-menu";
   mm.innerHTML = links.map(([k, h, t], i) => `<a href="${h}" class="${k === page ? "active" : ""}"><small>0${i + 1}</small>${t}</a>`).join("") +
-    `<div class="mm-foot">${C.phone} · ${C.location}</div>`;
+    `<div class="mm-foot">${C.offices.map(o => `<a href="${telLink(o)}">${o.country} · ${o.phone}</a>`).join("")}</div>`;
   document.body.append(mm);
   const burger = $(".burger", nav);
   burger.addEventListener("click", () => {
@@ -73,13 +76,12 @@
         <div>
           <a class="brand" href="index.html"><img src="assets/img/logo-mark.svg" alt="" width="32" height="32"><span>COREVIA</span></a>
           <p class="muted" style="margin:18px 0 22px;max-width:34ch">${C.tagline}. Video, web, apps, systems, data and AI — affordable, and delivered fast.</p>
-          <a class="btn sm" href="${waLink("Hi Corevia! I'd like to start a project.")}" target="_blank" rel="noopener" data-magnetic>WhatsApp us <span class="arr">${I.arrow}</span></a>
+          <a class="btn sm" href="contact.html" data-wa-msg="Hi Corevia! I'd like to start a project." data-magnetic>WhatsApp us <span class="arr">${I.arrow}</span></a>
         </div>
         <div><h5>Services</h5><ul>${svcLinks}</ul></div>
         <div><h5>Studio</h5><ul>${links.map(([, h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}</ul></div>
         <div><h5>Contact</h5><ul>
-          <li><a href="tel:${C.phone.replace(/\s/g, "")}">${C.phone}</a></li>
-          <li><a href="${waLink()}" target="_blank" rel="noopener">WhatsApp</a></li>
+          ${C.offices.map(o => `<li><span class="cc">${o.id.toUpperCase()}</span><a href="${waLink("Hi Corevia!", o.id)}" target="_blank" rel="noopener">${o.phone}</a></li>`).join("")}
           ${C.email ? `<li><a href="mailto:${C.email}">${C.email}</a></li>` : ""}
           <li><span class="muted">${C.location}</span></li>
         </ul></div>
@@ -91,10 +93,39 @@
 
   if (page !== "contact") {
     const f = document.createElement("a");
-    f.className = "wa-float"; f.href = waLink("Hi Corevia!"); f.target = "_blank"; f.rel = "noopener";
+    f.className = "wa-float"; f.href = "contact.html"; f.dataset.waMsg = "Hi Corevia!";
     f.setAttribute("aria-label", "Chat on WhatsApp"); f.innerHTML = wa;
     document.body.append(f);
   }
+
+  /* ---------------- WhatsApp chooser: Qatar or Egypt ---------------- */
+  const pick = document.createElement("div");
+  pick.className = "wa-pick"; pick.setAttribute("role", "dialog"); pick.setAttribute("aria-modal", "true"); pick.setAttribute("aria-label", "Choose who to chat with");
+  document.body.append(pick);
+  let pickReturn;
+  function openPick(msg = "Hi Corevia!") {
+    pickReturn = document.activeElement;
+    pick.innerHTML = `<div class="scrim"></div><div class="glass sheet">
+      <button class="close" aria-label="Close">×</button>
+      <div class="eyebrow">Chat on WhatsApp</div>
+      <h3>Where are you?</h3>
+      <p class="muted">Pick the closest office — both reply directly on WhatsApp.</p>
+      <div class="wa-opts">${C.offices.map(o => `<a class="wa-opt" href="${waLink(msg, o.id)}" target="_blank" rel="noopener">
+        <span class="cc big">${o.id.toUpperCase()}</span><span><strong>${o.country}</strong><small>${o.phone}</small></span>${wa}</a>`).join("")}</div>
+    </div>`;
+    requestAnimationFrame(() => pick.classList.add("open"));
+    pick.querySelector(".wa-opt").focus();
+  }
+  function closePick() { pick.classList.remove("open"); pickReturn && pickReturn.focus && pickReturn.focus(); }
+  pick.addEventListener("click", e => { if (e.target.closest(".scrim, .close, .wa-opt")) closePick(); });
+  addEventListener("keydown", e => { if (e.key === "Escape" && pick.classList.contains("open")) closePick(); });
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-wa-msg]");
+    if (!a) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    openPick(a.dataset.waMsg);
+  }, true);
+  window.coreviaWAPick = openPick;
 
   const prog = document.createElement("div"); prog.className = "progress"; document.body.append(prog);
 
@@ -152,7 +183,15 @@
     return `<div class="mock"></div>`;
   }
   window.coreviaMock = mockup;
-  $$("[data-mock]").forEach(el => { el.outerHTML = mockup(el.dataset.mock); });
+  // a service with its own Omni photo/video uses that instead of the code-drawn visual
+  function serviceMedia(type) {
+    const svc = C.services.find(s => s.mock === type);
+    if (svc && svc.video) return `<div class="mock media-fill">${mockup(type)}<video src="${svc.video}" autoplay muted loop playsinline preload="metadata" onerror="this.remove()"></video></div>`;
+    if (svc && svc.image) return `<div class="mock media-fill">${mockup(type)}<img src="${svc.image}" alt="" loading="lazy" onerror="this.remove()"></div>`;
+    return mockup(type);
+  }
+  $$("[data-mock]").forEach(el => { el.outerHTML = serviceMedia(el.dataset.mock); });
+  if (C.founderPhoto) $$(".founder .side").forEach(el => { el.classList.add("has-photo"); el.insertAdjacentHTML("afterbegin", `<img class="founder-photo" src="${C.founderPhoto}" alt="${C.founder}" onerror="this.remove()">`); });
   $$("[data-scene]").forEach(el => { el.innerHTML = sceneSVG(); });
 
   /* ---------------- loader (first visit per session) ---------------- */

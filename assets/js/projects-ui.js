@@ -108,7 +108,7 @@
     if (p.youtube) media = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId(p.youtube))}?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(p.title)}"></iframe>`;
     else if (p.video) media = mockOf(p) + `<video src="${esc(p.video)}" controls autoplay playsinline style="position:relative;z-index:1"></video>`;
     else media = mockOf(p);
-    const wa = window.coreviaWA(`Hi Corevia! I saw "${p.title}" on your website and I want something similar.`);
+    const wa = `Hi Corevia! I saw "${p.title}" on your website and I want something similar.`;
     modal.innerHTML = `<div class="scrim"></div>
       <div class="glass panel">
         <button class="close" aria-label="Close">×</button>
@@ -124,7 +124,7 @@
           <p class="lead">${esc(p.summary)}</p>
           ${p.tags && p.tags.length ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px">${p.tags.map(t => `<span class="badge">${esc(t)}</span>`).join("")}</div>` : ""}
           <div class="btn-row">
-            <a class="btn" href="${wa}" target="_blank" rel="noopener">I want something like this</a>
+            <a class="btn" href="contact.html" data-wa-msg="${esc(wa)}">I want something like this</a>
             ${p.link ? `<a class="btn ghost" href="${esc(p.link)}" ${/^https?:/.test(p.link) ? 'target="_blank" rel="noopener"' : ""}>Open project</a>` : ""}
           </div>
         </div>

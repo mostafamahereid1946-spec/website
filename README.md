@@ -12,7 +12,7 @@ Plain HTML/CSS/JS with no build step, so it can be hosted for free on **Cloudfla
 | Work | `work.html` | Portfolio with filters, "NEW" badges, video popup |
 | Pricing | `pricing.html` | 3 packages, quote builder that sends to WhatsApp, FAQ |
 | About | `about.html` | Founder card (Moustafa Maher), promises, timeline |
-| Contact | `contact.html` | Form that opens WhatsApp with the message filled in |
+| Contact | `contact.html` | Qatar and Egypt cards (WhatsApp, call, payment methods) + form that opens WhatsApp with the message filled in |
 
 The animated background is a live WebGL shader in the brand colours. It reacts to scrolling and to the mouse, and each page has its own variation.
 
@@ -44,6 +44,10 @@ Cloudflare Pages accepts files up to **25 MB** each. For 4K or long videos:
 
 **Dr Mohamed Ehab:** the site expects `assets/video/projects/dr-mohamed-ehab.mp4`. If you use YouTube instead, set `youtube:` in that project and clear `video:`.
 
+## Gemini Omni media
+
+See **`OMNI_PROMPTS.md`** for the full prompt pack (backgrounds, service photos/loops, founder photo) and where each file goes.
+
 ## Gemini Omni background videos (optional)
 
 The WebGL background works without any video. To add a Gemini Omni clip on top of it:
@@ -66,7 +70,8 @@ The video is blended with *screen* mode over the shader, so dark parts disappear
 
 ## Editing basics
 
-- **Contact info and services:** `assets/js/config.js`
+- **Phone numbers, payment methods and services:** `assets/js/config.js` (`offices` list)
+- **Fonts:** Unbounded (headlines), Sora (text), JetBrains Mono (labels) — self-hosted in `assets/fonts/`
 - **Colours and styles:** `assets/css/style.css` (the variables at the top)
 - **Text on each page:** the `.html` files
 - **Libraries:** GSAP, Lenis and Three.js are stored in `assets/vendor/`, so the site does not depend on outside CDNs.

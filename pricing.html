@@ -10,9 +10,8 @@
   <meta property="og:title" content="Pricing — Corevia">
   <meta property="og:description" content="Affordable, fixed quotes for video, websites, apps, systems, data and AI projects. Build your quote in seconds.">
   <meta property="og:image" content="assets/img/og-card.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/sora-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.js","three/addons/":"./assets/vendor/three/addons/"}}</script>
 </head>
@@ -36,19 +35,19 @@
           <h3>Starter</h3><p class="muted" style="margin:6px 0 0">For creators & small shops</p>
           <div class="price">Low cost <small>· quick quote</small></div>
           <ul><li>One service (e.g. a video or a landing page)</li><li>Fast delivery</li><li>2 rounds of edits</li><li>WhatsApp support</li></ul>
-          <a class="btn ghost" href="#" data-wa="Hi Corevia! I'm interested in the Starter package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn ghost" href="contact.html" data-wa-msg="Hi Corevia! I'm interested in the Starter package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         </article>
         <article class="glass spot tier hot" data-tilt="6"><span class="tag">MOST POPULAR</span>
           <h3>Business</h3><p class="muted" style="margin:6px 0 0">For companies that want to grow</p>
           <div class="price">Best value <small>· fixed quote</small></div>
           <ul><li>Website + video, or app + system</li><li>Matching brand style everywhere</li><li>Priority delivery</li><li>Unlimited small edits during the project</li><li>1 month free support</li></ul>
-          <a class="btn" href="#" data-wa="Hi Corevia! I'm interested in the Business package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn" href="contact.html" data-wa-msg="Hi Corevia! I'm interested in the Business package.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         </article>
         <article class="glass spot tier" data-tilt="6">
           <h3>Custom</h3><p class="muted" style="margin:6px 0 0">Systems, apps & big launches</p>
           <div class="price">Tailored <small>· milestones</small></div>
           <ul><li>Mobile apps & company systems</li><li>Data dashboards & automation</li><li>Pay per milestone</li><li>Ongoing monthly care plans</li></ul>
-          <a class="btn ghost" href="#" data-wa="Hi Corevia! I'd like a Custom quote.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="btn ghost" href="contact.html" data-wa-msg="Hi Corevia! I'd like a Custom quote.">Get my price <span class="arr"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
         </article>
       </div>
     </div>
@@ -88,7 +87,7 @@
       <h2 class="h2" data-split style="margin-bottom:40px">Questions? <span class="grad">Answered.</span></h2>
       <div class="faq" data-reveal="stagger">
         <details class="glass"><summary>How fast can you deliver?</summary><div class="a">Very fast. Smaller jobs like a video edit or a landing page are usually the quickest; apps and systems are delivered in milestones so you see progress early. You get a delivery date with your quote.</div></details>
-        <details class="glass"><summary>How do I pay?</summary><div class="a">We agree a fixed price first. Small projects are usually paid half at the start and half on delivery; bigger projects are paid per milestone.</div></details>
+        <details class="glass"><summary>How do I pay?</summary><div class="a">We agree a fixed price first. In Qatar we accept Fawran, bank transfer, cards and cash; in Egypt we accept InstaPay, Fawry, Vodafone Cash and other wallets, bank transfer and cash. Small projects are usually paid half at the start and half on delivery; bigger projects are paid per milestone.</div></details>
         <details class="glass"><summary>Can I ask for changes?</summary><div class="a">Yes. Every package includes rounds of edits, and we share previews while we work so changes are easy.</div></details>
         <details class="glass"><summary>Do you host my website?</summary><div class="a">We can set up fast, free hosting for most websites, and help you connect your own domain whenever you're ready.</div></details>
         <details class="glass"><summary>I only have phone footage. Is that OK?</summary><div class="a">Absolutely — that's exactly what our cinematic transformation and AI video services are for.</div></details>
@@ -124,13 +123,11 @@
     f.addEventListener("change", show); show();
     f.addEventListener("submit", e => {
       e.preventDefault(); const q = read(); if (!q.svc.length) return;
-      window.open(window.coreviaWA(`Hi Corevia! I'd like a quote.\nServices: ${q.svc.join(", ")}\nSize: ${q.size}\nTiming: ${q.time}`), "_blank", "noopener");
+      window.coreviaWAPick(`Hi Corevia! I'd like a quote.\nServices: ${q.svc.join(", ")}\nSize: ${q.size}\nTiming: ${q.time}`);
     });
   })();</script>
 <script src="assets/js/main.js"></script>
-<script>
-  document.querySelectorAll("[data-wa]").forEach(a => { a.href = coreviaWA(a.dataset.wa); a.target = "_blank"; a.rel = "noopener"; });
-</script>
+
 <script type="module" src="assets/js/hero3d.js"></script>
 </body>
 </html>
